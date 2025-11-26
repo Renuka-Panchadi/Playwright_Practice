@@ -22,10 +22,7 @@ export async function dropdown(page,dropdown_locator,components, selected_filter
     const text = await opt.textContent();
 
     if (text.includes(selected_filter)) {
-        // Get option value
         const value = await opt.getAttribute("value");
-
-        // Select using Playwright API
         await page.locator(dropdown_locator).selectOption(value);
         await page.waitForTimeout(2000)
         break;
